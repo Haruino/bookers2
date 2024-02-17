@@ -7,7 +7,7 @@
     <div class="col-md-8 offset-md-1">
       <!--一覧-->
       <h2>Books</h2>
-      <table class="table table-hover table-inverse">
+      <table class="table">
         <thead>
           <tr>
             <th></th>
@@ -21,7 +21,7 @@
             <tr>
               <td><%= image_tag book.user.get_profile_image(80,80) %></td>
               <td>
-                <%= link_to book_path(book.id) do %>
+                <%= link_to book_path(book.id), class: "book_#{book.id}" do %>
                   <%= book.title %>
                 <% end %>
               </td>
