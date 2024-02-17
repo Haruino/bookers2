@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <!--ここからテンプレ化-->
     <!--左側ページ-->
+    <!--ここからテンプレ化-->
     <div class="col-md-3">
       <!--User info-->
       <h2>User info</h2>
@@ -40,7 +40,7 @@
         <tbody>
           <% @books.each do |book| %>
             <tr>
-              <td><%= image_tag "no_image.jpg" %></td>
+              <td><%= image_tag book.user.get_profile_image(80,80) %></td>
               <td>
                 <%= link_to book_path(book.id) do %>
                   <%= book.title %>

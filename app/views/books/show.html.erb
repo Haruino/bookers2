@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <!--ここからテンプレ化-->
     <!--左側ページ-->
+    <!--ここからテンプレ化-->
     <div class="col-md-3">
       <!--User info-->
       <h2>User info</h2>
@@ -31,7 +31,13 @@
       <table class="table">
         <tbody>
           <tr>
-            <td><%= image_tag "no_image.jpg" %></td>
+            <td>
+              <%= link_to user_path(@book.user) do %>
+                <%= image_tag @book.user.get_profile_image(100,100) %>
+                <br>
+                <%= @book.user.name %>
+              <% end %>
+            </td>
             <td>
               <%= link_to book_path(@book.id) do %>
                 <%= @book.title %>
@@ -39,7 +45,9 @@
             </td>
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>
-
+              <td>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success edit_book_#{@book.id}" %>
+              </td>
               <td>
                 <%= link_to "Destroy", book_path(@book.id), method: :delete,"data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger destroy_book_#{@book.id}" %>
               </td>
