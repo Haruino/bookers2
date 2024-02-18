@@ -20,10 +20,10 @@
     <i class="fa-solid fa-user-gear"></i>
     <% end %>
   </div>
-  
+
   <!--投稿フォーム-->
   <h2 class="mt-3">New book</h2>
-  <%= form_with model: book do |f| %>
+  <%= form_with model: Book.new do |f| %>
     <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title, class: "book_title form-control" %>
